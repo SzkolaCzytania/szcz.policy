@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="szcz.policy">
+
+  <!-- configure your content components here -->
+  
+  <!-- -*- extra stuff goes here -*- -->
+  <class class=".book.Book">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IBook"
+        />
+  </class>
+
+</configure>

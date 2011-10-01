@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<object name="Book"
+<object name="Person"
    meta_type="Factory-based Type Information with dynamic views"
    i18n:domain="szcz.policy" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-  <property name="title" i18n:translate="">Book</property>
+  <property name="title" i18n:translate="">Person</property>
   <property name="description"
-    i18n:translate="">Szkola Czytania Book</property>
-  <property name="content_meta_type">Book</property>
-  <property name="content_icon">++theme++szkolaczytania/images/ico_book.png</property>
+    i18n:translate="">Person that could be either Author or Person</property>
+  <property name="content_meta_type">Person</property>
+  <property name="content_icon">++theme++szkolaczytania/images/ico_person.png</property>
   <property name="product">szcz.policy</property>
-  <property name="factory">addBook</property>
+  <property name="factory">addPerson</property>
   <property name="immediate_view">atct_edit</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">False</property>

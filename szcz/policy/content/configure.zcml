@@ -6,6 +6,18 @@
   <!-- configure your content components here -->
   
   <!-- -*- extra stuff goes here -*- -->
+  <class class=".canon.Canon">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ICanon"
+        />
+  </class>
+  <class class=".person.Person">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IPerson"
+        />
+  </class>
   <class class=".book.Book">
     <require
         permission="zope2.View"

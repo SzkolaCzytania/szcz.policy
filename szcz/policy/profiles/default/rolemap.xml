@@ -2,6 +2,14 @@
 <rolemap>
   <permissions>
     <!-- -*- extra stuff goes here -*- -->
+    <permission name="szcz.policy: Add Canon" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="szcz.policy: Add Person" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
     <permission name="szcz.policy: Add Book" acquire="False">
       <role name="Manager" />
       <role name="Contributor" />

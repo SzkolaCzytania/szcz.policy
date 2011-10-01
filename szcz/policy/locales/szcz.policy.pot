@@ -1,0 +1,113 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-10-01 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: szcz.policy\n"
+
+#: ./profiles/default/types/Book.xml
+msgid "Book"
+msgstr ""
+
+#: ./profiles/default/types/Canon.xml
+msgid "Book's Canon"
+msgstr ""
+
+#: ./profiles/default/types/Canon.xml
+msgid "Canon"
+msgstr ""
+
+#: ./profiles/default/types/Person.xml
+msgid "Person"
+msgstr ""
+
+#: ./profiles/default/types/Person.xml
+msgid "Person that could be either Author or Person"
+msgstr ""
+
+#: ./profiles/default/types/Book.xml
+msgid "Szkola Czytania Book"
+msgstr ""
+
+#. Default: "Publisher's address. For major publishing houses, just the city is given."
+#: ./content/book.py:55
+msgid "help_address"
+msgstr ""
+
+#. Default: "The edition of a book - for example: 'II', '2' or 'second', depending on your preference."
+#: ./content/book.py:63
+msgid "help_edition"
+msgstr ""
+
+#. Default: "The ISBN number of this publication."
+#: ./content/book.py:71
+msgid "help_isbn"
+msgstr ""
+
+#. Default: "A page number or range of numbers such as '42-111'"
+#: ./content/book.py:40
+msgid "help_pages"
+msgstr ""
+
+#. Default: "The publisher's name."
+#: ./content/book.py:47
+msgid "help_publisher"
+msgstr ""
+
+#. Default: "Address"
+#: ./content/book.py:54
+msgid "label_address"
+msgstr ""
+
+#. Default: "Biography"
+#: ./content/person.py:25
+msgid "label_biography"
+msgstr ""
+
+#. Default: "Book authors"
+#: ./content/book.py:29
+msgid "label_book_authors"
+msgstr ""
+
+#. Default: "Canon authors"
+#: ./content/canon.py:29
+msgid "label_canon_authors"
+msgstr ""
+
+#. Default: "Edition"
+#: ./content/book.py:62
+msgid "label_edition"
+msgstr ""
+
+#. Default: "Fullname"
+#: ./content/person.py:36
+msgid "label_fullname"
+msgstr ""
+
+#. Default: "ISBN Number"
+#: ./content/book.py:70
+msgid "label_isbn"
+msgstr ""
+
+#. Default: "Pages"
+#: ./content/book.py:39
+msgid "label_pages"
+msgstr ""
+
+#. Default: "Publisher"
+#: ./content/book.py:46
+msgid "label_publisher"
+msgstr ""
+

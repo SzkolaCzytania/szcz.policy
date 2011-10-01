@@ -6,16 +6,70 @@ from zope.interface import implements
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
+from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 
-# -*- Message Factory Imported Here -*-
-
+from szcz.policy import policyMessageFactory as _
 from szcz.policy.interfaces import IBook
 from szcz.policy.config import PROJECTNAME
 
 BookSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
-    # -*- Your Archetypes field definitions here ... -*-
+    atapi.ReferenceField('authors',
+            relationship = 'book_author',
+            multiValued = True,
+            isMetadata = True,
+            index = 'KeywordIndex',
+            allowed_types= 'Person',
+            widget = ReferenceBrowserWidget(
+                allow_search = True,
+                allow_browse = True,
+                allow_sorting = True,
+                show_indexes = False,
+                force_close_on_insert = False,
+                label = _(u'label_book_authors', default=u'Book authors'),
+                description = '',
+                visible = {'edit' : 'visible', 'view' : 'invisible' }
+                )
+            ),
 
+    atapi.StringField('pages',
+                searchable=1,
+                required=0,
+                is_duplicates_criterion=True,
+                widget=atapi.StringWidget(label=_(u'label_pages', default=u"Pages"),
+                    description=_(u'help_pages', default=u"A page number or range of numbers such as '42-111'"),),
+                ),
+
+    atapi.StringField('publisher',
+                searchable=1,
+                required=0,
+                widget=atapi.StringWidget(label=_(u'label_publisher',default="Publisher"),
+                    description=_(u'help_publisher',default="The publisher's name."),
+                    size=60,),
+                ),
+
+    atapi.StringField('address',
+                searchable=1,
+                required=0,
+                widget=atapi.StringWidget(label=_('label_address',default=u"Address"),
+                    description=_(u'help_address',default=u"Publisher's address. For major publishing houses, just the city is given."),
+                    size=60,),
+                ),
+
+    atapi.StringField('edition',
+                searchable=1,
+                required=0,
+                widget=atapi.StringWidget(label=_(u'label_edition',default=u"Edition"),
+                    description=_(u'help_edition',default=u"The edition of a book - for example: 'II', '2' or 'second', depending on your preference."),
+                    size=60,),
+                ),
+
+    atapi.StringField('isbn',
+                searchable=1,
+                widget=atapi.StringWidget(
+                    label=_(u'label_isbn',default=u"ISBN Number"),
+                    description=_(u'help_isbn',default=u"The ISBN number of this publication."),),
+                )
 ))
 
 # Set storage on fields copied from ATContentTypeSchema, making sure
@@ -23,6 +77,7 @@ BookSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
 BookSchema['title'].storage = atapi.AnnotationStorage()
 BookSchema['description'].storage = atapi.AnnotationStorage()
+BookSchema['description'].widget.visible = {'edit': 'hidden', 'view': 'invisible'}
 
 schemata.finalizeATCTSchema(BookSchema, moveDiscussion=False)
 

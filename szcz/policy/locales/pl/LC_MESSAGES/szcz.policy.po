@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-10-01 12:00+0000\n"
+"POT-Creation-Date: 2011-10-01 18:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,6 +13,11 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+
+#. Default: "Abstract"
+#: ./content/book.py:80
+msgid "Abstrakt"
+msgstr "Abstrakt"
 
 #: ./profiles/default/types/Book.xml
 msgid "Book"
@@ -69,7 +74,7 @@ msgid "label_address"
 msgstr "Adres"
 
 #. Default: "Biography"
-#: ./content/person.py:25
+#: ./content/person.py:26
 msgid "label_biography"
 msgstr "Biografia"
 
@@ -89,7 +94,7 @@ msgid "label_edition"
 msgstr "Wydanie"
 
 #. Default: "Fullname"
-#: ./content/person.py:36
+#: ./content/person.py:24
 msgid "label_fullname"
 msgstr "Imię i nazwisko"
 
@@ -107,4 +112,9 @@ msgstr "Liczba stron"
 #: ./content/book.py:46
 msgid "label_publisher"
 msgstr "Wydawnictwo"
+
+#. Default: "Read more &raquo;"
+#: ./browser/book_carousel_tile.pt:28
+msgid "read_more"
+msgstr "Czytaj więcej &raquo;"
 

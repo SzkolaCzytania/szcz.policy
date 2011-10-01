@@ -1,0 +1,41 @@
+<div tal:define="item_url context/getURL|context/absolute_url;
+                  item_type context/portal_type;
+                  use_view_action site_properties/typesUseViewActionInListings|python:();
+                  item_description context/Description;
+                  item_title_or_id context/pretty_title_or_id;"
+     class="bookCarousel">
+
+    <div class="bookCover">
+        <a href="#"
+           tal:attributes="href python:(item_type in use_view_action) and item_url+'/view' or item_url;">
+                    <img src="" tal:condition="view/tag|nothing"
+                         tal:replace="structure python:path('nocall:view/tag')(css_class='')"
+                         alt="" />
+        </a>
+    </div>
+          <div class="bookDetails">
+                  <div class="bookClipTalk"><!-- --></div>
+                  <h6 class="bookAuthor"><span class="feather"><!-- --></span>
+                        <tal:authors repeat="author context/related_people">
+                            <span tal:replace="author"/>&nbsp;
+                        </tal:authors>
+                  </h6>
+                  <h4 class="bookTitle" tal:content="item_title_or_id">The Lord of the Rings</h4>
+                  <div class="bookDescription">
+                          <p tal:content="python: '%s...' % ' '.join(item_description.split(' ')[:55])">I remained lost to him.</p>
+                  </div>
+                  <div class="bookMore">
+                      <a class="moreLink" href="#"
+                        tal:attributes="href python:(item_type in use_view_action) and item_url+'/view' or item_url;"
+                          i18n:domain="szcz.policy"
+                          i18n:translate="read_more">
+                          Read more &raquo;
+                    </a>
+                  </div>
+<!--                  <div class="bookActions">
+                          <a class="reviewsLink" href="#">5 Reviews</a> <span class="sep">|</span> <a href="#" class="suggestLink">Suggest reading</a> 
+                      </div>
+-->
+          </div>
+          <div class="visualClear"><!-- --></div>
+</div>

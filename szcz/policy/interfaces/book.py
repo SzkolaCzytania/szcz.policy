@@ -1,8 +1,8 @@
-from zope.interface import Interface
+from collective.carousel.interfaces import IATWithLeadImage
 # -*- Additional Imports Here -*-
 
 
-class IBook(Interface):
+class IBook(IATWithLeadImage):
     """Szkola Czytania Book"""
 
     # -*- schema definition goes here -*-

@@ -77,9 +77,10 @@ BookSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
 BookSchema['title'].storage = atapi.AnnotationStorage()
 BookSchema['description'].storage = atapi.AnnotationStorage()
-BookSchema['description'].widget.visible = {'edit': 'hidden', 'view': 'invisible'}
+BookSchema['description'].widget.label = _(u'Abstrakt', default=u'Abstract')
 
 schemata.finalizeATCTSchema(BookSchema, moveDiscussion=False)
+
 
 
 class Book(base.ATCTContent):
@@ -92,6 +93,7 @@ class Book(base.ATCTContent):
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
 
-    # -*- Your ATSchema to Python Property Bridges Here ... -*-
+    def related_people(self):
+        return [a.Title() for a in self.getAuthors()]
 
 atapi.registerType(Book, PROJECTNAME)

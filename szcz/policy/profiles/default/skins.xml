@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+
+ <object name="szcz_templates"
+    meta_type="Filesystem Directory View"
+    directory="szcz.policy:skins/szcz_templates"/>
+
+ <skin-path name="*">
+  <layer name="szcz_templates"
+     insert-after="custom"/>
+ </skin-path>
+
+</object>

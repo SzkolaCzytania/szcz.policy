@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+    <div metal:fill-slot="main">
+    <metal:main-macro define-macro="main">
+
+      <metal:listingmacro define-macro="listing">
+
+	<dl tal:attributes="id view/data/div_id;
+	                    class string:portlet ${class}"
+	    tal:define="collection_url view/collection_url;
+	                getIcon nocall:plone_view/getIcon;
+			class view/data/css_class|nothing;">
+
+	    <dt class="portletHeader">
+              <a tal:attributes="href collection_url" tal:condition="view/data/show_more" class="tile">
+                <span tal:replace="view/data/header"></span>
+              </a>
+	    </dt>
+	    
+	    <dd class="portletItem itemCollection">
+
+            <tal:events tal:repeat="obj query_results">
+                <tal:first condition="python: repeat['obj'].number() == 1" tal:define="item_icon python:getIcon(obj); item_path obj/getPath;">
+                <div class="itemContent">
+                      <div class="itemPhoto">
+                        <img src="http://placehold.it/64x64" alt="photo" 
+                             tal:attributes="src string:${obj/getURL}/leadImage_mini; alt obj/Title;"/>
+                        <a class="moreLink" href="#" tal:attributes="href obj/getURL">
+                          Czytaj biografie »</a>
+                      </div>
+                      <h2 class="itemTitle">
+                        <a href="#" tal:attributes="href obj/getURL">
+                            <span tal:replace="obj/Title">
+                                    Title
+                            </span>
+                        </a>
+                      </h2>
+                      <p class="quote"><span class="leftQuote"></span>
+                          <span tal:replace="python: '%s...' % ' '.join(obj.Description.split(' ')[:15])" />
+                      <span class="rightQuote"></span></p>
+                      <p tal:content="python: '%s...' % ' '.join(obj.Description.split(' ')[15:100])"/>
+                    </div>
+                </tal:first>
+            </tal:events>
+            <h4>POZOSTALI</h4>
+            <tal:events tal:repeat="obj query_results">
+                <tal:others condition="python: repeat['obj'].number() > 1">
+                    <div class="itemReview">
+                      <h6>
+                        <a href="#" tal:attributes="href obj/getURL">
+                            <span tal:replace="obj/Title">
+                                    Title
+                            </span>
+                        </a>
+                      </h6>
+                      <p class="itemAbstract" tal:content="python: '%s...' % ' '.join(obj.Description.split(' ')[:35])"/>
+                    </div>
+                </tal:others>
+            </tal:events>
+	    </dd>
+
+	    <dd class="portletFooter"
+		    tal:define="show_more view/data/show_more"
+			tal:condition="show_more">
+	        <a tal:condition="not:view/data/link_text" class="moreLink"
+		    tal:attributes="href collection_url" i18n:translate="more_url">
+	             More&hellip;
+	             </a>
+	        <a tal:condition="view/data/link_text" class="moreLink"
+		    tal:attributes="href collection_url"
+   		    tal:content="view/data/link_text">
+	             Custom text
+	             </a>
+	    </dd>
+	</dl>
+
+
+</metal:listingmacro>
+
+
+    </metal:main-macro>
+    </div>
+
+</body>
+</html>

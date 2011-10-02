@@ -48,4 +48,5 @@ def initialize(context):
             permission=config.ADD_PERMISSIONS[atype.portal_type],
             extra_constructors=(constructor,),
             ).initialize(context)
-    import sys;sys.stdout=file('/dev/stdout','w')
+
+    import patches; patches

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-10-01 18:38+0000\n"
+"POT-Creation-Date: 2011-10-02 13:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,13 +71,18 @@ msgstr ""
 msgid "help_publisher"
 msgstr ""
 
+#. Default: "Year of birth or range of life (birth-death)"
+#: ./content/person.py:20
+msgid "help_years"
+msgstr ""
+
 #. Default: "Address"
 #: ./content/book.py:54
 msgid "label_address"
 msgstr ""
 
 #. Default: "Biography"
-#: ./content/person.py:26
+#: ./content/person.py:31
 msgid "label_biography"
 msgstr ""
 
@@ -97,7 +102,7 @@ msgid "label_edition"
 msgstr ""
 
 #. Default: "Fullname"
-#: ./content/person.py:24
+#: ./content/person.py:29
 msgid "label_fullname"
 msgstr ""
 
@@ -116,8 +121,14 @@ msgstr ""
 msgid "label_publisher"
 msgstr ""
 
+#. Default: "Years"
+#: ./content/person.py:19
+msgid "label_years"
+msgstr ""
+
 #. Default: "Read more &raquo;"
-#: ./browser/book_carousel_tile.pt:28
+#: ./browser/book_carousel_tile.pt:29
+#: ./browser/person_carousel_tile.pt:27
 msgid "read_more"
 msgstr ""
 

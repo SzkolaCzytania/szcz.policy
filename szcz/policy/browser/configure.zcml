@@ -12,6 +12,14 @@
       layer="collective.carousel.interfaces.ICollectiveCarouselLayer"
     />
 
+    <browser:page
+      name="carousel-portlet-view"
+      for="..interfaces.IPerson"
+      class=".leadimagetile.PersonLeadImageTile"
+      permission="zope2.View"
+      layer="collective.carousel.interfaces.ICollectiveCarouselLayer"
+    />
+
   <utility component=".composer.szcz_template"
            name="szcz"
            provides="collective.dancing.interfaces.IHTMLComposerTemplate" />

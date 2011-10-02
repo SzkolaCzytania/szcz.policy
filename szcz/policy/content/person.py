@@ -14,6 +14,11 @@ from szcz.policy.config import PROJECTNAME
 
 PersonSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
+    atapi.StringField('years',
+                required=1,
+                widget=atapi.StringWidget(label=_(u'label_years', default=u"Years"),
+                    description=_(u'help_years', default=u"Year of birth or range of life (birth-death)"),),
+                ),
 
 ))
 

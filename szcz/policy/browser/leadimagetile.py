@@ -24,3 +24,7 @@ class BookLeadImageTile(LeadImageTile):
 
     def __call__(self):
         return self.template()
+
+class PersonLeadImageTile(BookLeadImageTile):
+
+    template = ViewPageTemplateFile('person_carousel_tile.pt')

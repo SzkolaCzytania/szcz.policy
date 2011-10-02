@@ -32,6 +32,23 @@ CanonSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
                 )
             ),
 
+    atapi.ReferenceField('books',
+            relationship = 'canon_book',
+            multiValued = True,
+            isMetadata = True,
+            index = 'KeywordIndex',
+            allowed_types= 'Book',
+            widget = ReferenceBrowserWidget(
+                allow_search = True,
+                allow_browse = True,
+                allow_sorting = True,
+                show_indexes = False,
+                force_close_on_insert = False,
+                label = _(u'label_canon_books', default=u'Canon books'),
+                description = '',
+                visible = {'edit' : 'visible', 'view' : 'invisible' }
+                )
+            ),
 ))
 
 # Set storage on fields copied from ATContentTypeSchema, making sure

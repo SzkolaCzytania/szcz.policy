@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-10-02 13:28+0000\n"
+"POT-Creation-Date: 2011-10-02 17:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,10 @@ msgstr ""
 msgid "Book"
 msgstr ""
 
+#: ./profiles/default/types/Review.xml
+msgid "Book review"
+msgstr ""
+
 #: ./profiles/default/types/Canon.xml
 msgid "Book's Canon"
 msgstr ""
@@ -37,6 +41,10 @@ msgstr ""
 
 #: ./profiles/default/types/Person.xml
 msgid "Person that could be either Author or Person"
+msgstr ""
+
+#: ./profiles/default/types/Review.xml
+msgid "Review"
 msgstr ""
 
 #: ./profiles/default/types/Book.xml
@@ -93,6 +101,11 @@ msgstr ""
 msgid "label_canon_authors"
 msgstr ""
 
+#. Default: "Canon books"
+#: ./content/canon.py:47
+msgid "label_canon_books"
+msgstr ""
+
 #. Default: "Edition"
 #: ./content/book.py:62
 msgid "label_edition"
@@ -116,6 +129,11 @@ msgstr ""
 #. Default: "Publisher"
 #: ./content/book.py:46
 msgid "label_publisher"
+msgstr ""
+
+#. Default: "Review author"
+#: ./content/review.py:29
+msgid "label_review_author"
 msgstr ""
 
 #. Default: "Years"

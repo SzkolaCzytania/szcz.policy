@@ -6,6 +6,12 @@
   <!-- configure your content components here -->
   
   <!-- -*- extra stuff goes here -*- -->
+  <class class=".review.Review">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IReview"
+        />
+  </class>
   <class class=".canon.Canon">
     <require
         permission="zope2.View"

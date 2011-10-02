@@ -4,7 +4,7 @@
 from zope.interface import implements
 
 from Products.Archetypes import atapi
-from Products.ATContentTypes.content import base
+from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 
@@ -12,7 +12,7 @@ from szcz.policy import policyMessageFactory as _
 from szcz.policy.interfaces import IBook
 from szcz.policy.config import PROJECTNAME
 
-BookSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
+BookSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     atapi.ReferenceField('authors',
             relationship = 'book_author',
@@ -79,11 +79,11 @@ BookSchema['title'].storage = atapi.AnnotationStorage()
 BookSchema['description'].storage = atapi.AnnotationStorage()
 BookSchema['description'].widget.label = _(u'Abstrakt', default=u'Abstract')
 
-schemata.finalizeATCTSchema(BookSchema, moveDiscussion=False)
+schemata.finalizeATCTSchema(BookSchema, folderish=True, moveDiscussion=False)
 
 
 
-class Book(base.ATCTContent):
+class Book(folder.ATFolder):
     """Szkola Czytania Book"""
     implements(IBook)
 

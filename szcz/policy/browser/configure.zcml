@@ -12,4 +12,8 @@
       layer="collective.carousel.interfaces.ICollectiveCarouselLayer"
     />
 
+  <utility component=".composer.szcz_template"
+           name="szcz"
+           provides="collective.dancing.interfaces.IHTMLComposerTemplate" />
+
 </configure>

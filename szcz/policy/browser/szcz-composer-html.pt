@@ -1,0 +1,174 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="collective.dancing">
+
+  <head>
+    <title tal:content="options/subject">Subject</title>
+    <style type="text/css">
+          body {
+              font-family: Helvetica, Arial, sans-serif;
+              font-size: 80%;
+              line-height: 1.3em;
+              color: #373723;
+          }
+
+          /** link **/
+          a, a:link {
+              color: #527017;
+              text-decoration: none;
+          }
+          a:hover {
+              color: #000;
+          }
+          a:active {
+              color: #400;
+          }
+          a:focus {
+              outline:1px dotted;
+          }
+
+          /** layout **/
+          p,dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset
+          {
+              margin-bottom:0.3em;
+              padding:0;
+          }
+          /** Headers styles **/
+          h1, h2, h3, h4, h5, h6 {
+              margin: 0;
+              color: #5A140C;
+              line-height: 1.6em;
+              font-weight:normal;
+              font-family: 'Francois One', Helvetica, Arial, sans-serif;
+          }
+          h1{
+              font-size:2em;
+              line-height: 1.4em;
+              margin-bottom: 0.3em;
+          }
+          h2{
+              font-size:2.6em;
+              color: #5A140C;
+              line-height: 1.6em;
+              margin: 0.5em 0 0.3em;
+              text-align: center;
+          }
+          h3{
+              font-size:1.4em;
+              line-height: 1.4em;
+              margin-bottom: 0.6em;
+          }
+          h4{
+              line-height: 1.8em;
+              font-size:1.4em;
+              margin-bottom: 0.7em;
+              color: #5A140C;
+              font-family: 'Francois One', Helvetica, Arial, sans-serif;
+          }
+          h5{
+              font-size:1em;
+              margin-bottom: 0.8em;
+          }
+          h6{
+              font-size:0.9em;
+              margin-bottom: 0.8em;
+          }
+
+          .visualClear {
+              display: block;
+              clear: both;
+          }
+
+          /***** graphic layout ****/
+
+          #body-wrapper {
+              padding: 30px;
+          }
+          #portal-top {
+              min-height: 400px;
+              text-align: center;
+          }
+
+          /** logo **/
+          #portal-logo-wrapper {
+              margin-bottom: 2em;
+          }
+
+          #content {
+              margin: 10px auto 0;
+              width: 633px;
+          }
+          #content .pres {
+              min-height: 210px;    
+          }
+          #contact {
+              font-size: 1em;   
+              margin: 1em;
+              padding: 1em 0;
+              border-top: 1px dashed  #79746e;
+              border-bottom: 1px dashed  #79746e;
+          }
+          .copyright {
+              margin: 2em 0;
+          }
+          #content .pres p {
+              font-family: 'Lato', Helvetica, Arial, sans-serif;
+              font-size: 1.2em;
+              line-height: 1.6em;
+              text-align: center;
+              margin: 0.5em 0 0.8em;
+          }
+          #content .pres p i {
+              font-weight: bold;
+          }
+  </style>
+  </head>
+
+  <body>
+		<div id="body-wrapper">
+			<div id="visual-portal-wrapper"> 
+
+				<div id="portal-top" class="container_16">
+					<div id="portal-header">
+						<!-- logo -->
+                                                <div id="portal-logo-wrapper">
+                                                    <img src="http://admin.szkolaczytania.org.pl/++theme++szkolaczytania/images/logo_landing.png" />
+						</div>
+					</div><!-- #portal-header -->
+					
+					<div id="content">
+						<div class="pres" tal:define="contents options/contents" tal:condition="contents">
+                                                    <p class="contentItem" tal:repeat="html contents"
+                                                    tal:content="structure python: html.replace('<!--','').replace('-->','')">
+                                                                      Contents
+                                                          </p>
+						</div>
+                                                <div id="contact">
+                                                      <div class="whyReceiving" i18n:translate="">
+                                                        You're receiving this e-mail because you're registered for the
+                                                        <span tal:replace="options/channel_title" i18n:name="channel" />
+                                                        newsletter.
+                                                      </div>
+
+                                                      <div class="unsubOption">
+                                                        <a href="" tal:attributes="href options/unsubscribe_url" i18n:translate="">
+                                                          Click here to unsubscribe.
+                                                        </a>
+                                                      </div>
+                                                  <p><strong>Kontakt:</strong> <a href="mailto:info@szkolaczytania.org.pl">info@szkolaczytania.org.pl</a> 
+						</div>
+					</div>
+					
+					<div class="copyright">
+						2011 &copy; <strong>Szkoła Czytania</strong> - All rights reserved
+					</div>
+								
+				</div><!-- #portal-top -->
+				
+			</div><!-- #visual-portal-wrapper -->
+		</div><!-- #body-wrapper -->
+  </body>
+
+</html>

@@ -13,14 +13,14 @@ class BookLeadImageTile(LeadImageTile):
         field = context.getField(IMAGE_FIELD_NAME)
         if field is not None:
             if field.get_size(context) != 0:
-                #scale = self.prefs.body_scale_name
-                scale = 'carousel'
+                scale = self.is_home_page and 'carousel' or 'thumb'
                 return field.tag(context, scale=scale, css_class=css_class)
 
-        if getattr(context,'tag', None) is not None:
-            return context.tag(scale='mini', css_class=css_class)
-
         return ''
+
+    @property
+    def is_home_page(self):
+        return len(self.request.steps) < 4
 
     def __call__(self):
         return self.template()

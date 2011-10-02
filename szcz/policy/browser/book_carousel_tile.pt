@@ -21,7 +21,8 @@
                         </tal:authors>
                   </h6>
                   <h4 class="bookTitle" tal:content="item_title_or_id">The Lord of the Rings</h4>
-                  <div class="bookDescription">
+                  <div class="bookDescription"
+                      tal:condition="view/is_home_page">
                           <p tal:content="python: '%s...' % ' '.join(item_description.split(' ')[:55])">I remained lost to him.</p>
                   </div>
                   <div class="bookMore">

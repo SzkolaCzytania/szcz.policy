@@ -20,7 +20,7 @@ class BookLeadImageTile(LeadImageTile):
 
     @property
     def is_home_page(self):
-        return len(self.request.steps) < 4
+        return 'strona-glowna' in self.request.steps #NASTY but I don't have other ideas for now.
 
     def __call__(self):
         return self.template()

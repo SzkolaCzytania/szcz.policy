@@ -2,4 +2,5 @@
 <object name="ZCatalog" meta_type="ZCatalog">
  <property name="title">Sample Catalog</property>
  <column value="related_people"/>
+ <column value="getBiography_lead"/>
 </object>

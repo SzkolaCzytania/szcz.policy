@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-10-02 17:12+0000\n"
+"POT-Creation-Date: 2011-10-04 05:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,6 +56,11 @@ msgstr ""
 msgid "help_address"
 msgstr ""
 
+#. Default: "Short text lead, best describing the person."
+#: ./content/person.py:33
+msgid "help_biography_lead"
+msgstr ""
+
 #. Default: "The edition of a book - for example: 'II', '2' or 'second', depending on your preference."
 #: ./content/book.py:63
 msgid "help_edition"
@@ -77,7 +82,7 @@ msgid "help_publisher"
 msgstr ""
 
 #. Default: "Year of birth or range of life (birth-death)"
-#: ./content/person.py:20
+#: ./content/person.py:39
 msgid "help_years"
 msgstr ""
 
@@ -87,8 +92,18 @@ msgid "label_address"
 msgstr ""
 
 #. Default: "Biography"
-#: ./content/person.py:31
+#: ./content/person.py:26
 msgid "label_biography"
+msgstr ""
+
+#. Default: "Biography lead"
+#: ./content/person.py:32
+msgid "label_biography_lead"
+msgstr ""
+
+#. Default: "Body Text"
+#: ./content/review.py:27
+msgid "label_body_text"
 msgstr ""
 
 #. Default: "Book authors"
@@ -112,7 +127,7 @@ msgid "label_edition"
 msgstr ""
 
 #. Default: "Fullname"
-#: ./content/person.py:29
+#: ./content/person.py:48
 msgid "label_fullname"
 msgstr ""
 
@@ -132,12 +147,12 @@ msgid "label_publisher"
 msgstr ""
 
 #. Default: "Review author"
-#: ./content/review.py:29
+#: ./content/review.py:43
 msgid "label_review_author"
 msgstr ""
 
 #. Default: "Years"
-#: ./content/person.py:19
+#: ./content/person.py:38
 msgid "label_years"
 msgstr ""
 

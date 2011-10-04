@@ -44,9 +44,9 @@
                         </a>
                       </h2>
                       <p class="quote"><span class="leftQuote"></span>
-                          <span tal:replace="python: '%s...' % ' '.join(obj.Description.split(' ')[:15])" />
+                        <span tal:replace="obj/getBiography_lead"/>
                       <span class="rightQuote"></span></p>
-                      <p tal:content="python: '%s...' % ' '.join(obj.Description.split(' ')[15:100])"/>
+                      <p tal:content="obj/Description"/>
                     </div>
                 </tal:first>
             </tal:events>

@@ -70,6 +70,6 @@ class Person(base.ATCTContent):
         data = portal_transforms.convertTo('text/plain', self.getBiography(), mimetype='text/html')
         if data:
             descr = data.getData()
-            return '%s...' % (' '.join(descr.split(' ')))
+            return '%s...' % (' '.join(descr.split(' ')[:140]))
 
 atapi.registerType(Person, PROJECTNAME)

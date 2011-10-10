@@ -26,7 +26,7 @@
 	    </dt>
 	    
             <tal:events tal:repeat="obj query_results">
-              <dd class="portletItem itemCollection" tal:define="item_icon python:getIcon(obj); item_path obj/getPath;">
+              <dd class="portletItem itemCollection">
                 <div class="itemContent">
                       <div class="itemPhoto">
                         <img src="http://placehold.it/64x64" alt="photo" tal:attributes="src string:${obj/getURL}/leadImage_icon; alt obj/Title;"/>
@@ -45,8 +45,7 @@
                       </h6>
                       <p class="itemAbstract" tal:content="python: '%s...' % ' '.join(obj.Description.split(' ')[:15])">An editor's...</p>
                       <p class="itemData">
-                        <span class="date" tal:content="python:toLocalizedTime(obj.Date)">May 5</span>
-                        <span class="sep">|</span> Tagi: 
+                        Tagi: 
                         <tal:subject repeat="tag obj/Subject">
                           <a href="" class="tagLink" tal:content="tag" 
                              tal:attributes="href string:${context/portal_url}/search?Subject%3Alist=${tag}">books</a>,

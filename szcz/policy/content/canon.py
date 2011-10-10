@@ -7,6 +7,7 @@ from Products.Archetypes import atapi
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
+from plone.indexer.decorator import indexer
 
 from szcz.policy import policyMessageFactory as _
 from szcz.policy.interfaces import ICanon
@@ -70,6 +71,21 @@ class Canon(base.ATCTContent):
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
 
-    # -*- Your ATSchema to Python Property Bridges Here ... -*-
 
 atapi.registerType(Canon, PROJECTNAME)
+
+
+@indexer(ICanon)
+def author_path(obj):
+    authors = obj.getAuthors()
+    if authors:
+        return authors[0].absolute_url_path()
+    raise AttributeError
+
+@indexer(ICanon)
+def canon_lead(obj):
+    authors = obj.getAuthors()
+    if authors:
+        return authors[0].getBiography_lead()
+    raise AttributeError
+

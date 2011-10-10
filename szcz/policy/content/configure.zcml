@@ -30,5 +30,9 @@
         interface="..interfaces.IBook"
         />
   </class>
+    
+  <!-- indexable adapters -->
+  <adapter factory=".canon.author_path" name="author_path" />
+  <adapter factory=".canon.canon_lead" name="getBiography_lead" />
 
 </configure>

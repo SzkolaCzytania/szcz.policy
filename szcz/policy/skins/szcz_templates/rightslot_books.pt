@@ -29,7 +29,7 @@
               <dd class="portletItem itemCollection">
                 <div class="itemContent">
                       <div class="itemPhoto">
-                        <img src="http://placehold.it/64x64" alt="photo" tal:attributes="src string:${obj/getURL}/leadImage_icon; alt obj/Title;"/>
+                        <img src="http://placehold.it/64x64" alt="photo" tal:attributes="src string:${obj/getURL}/leadImage_tile; alt obj/Title;"/>
                       </div>
                       <div class="itemAuthor">
                         <tal:authors repeat="author obj/related_people">

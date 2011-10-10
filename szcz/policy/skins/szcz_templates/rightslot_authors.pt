@@ -43,7 +43,8 @@
                             </span>
                         </a>
                       </h6>
-                      <p class="itemAbstract" tal:content="python: '%s...' % ' '.join(obj.Description.split(' ')[:15])">An editor's...</p>
+                      <p class="itemData" tal:content="obj/getYears"></p>
+                      <p class="itemAbstract" tal:content="obj/getBiography_lead">An editor's...</p>
                     </div>
                   </dd>
             </tal:events>

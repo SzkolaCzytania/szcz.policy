@@ -4,4 +4,5 @@
  <column value="related_people"/>
  <column value="author_path"/>
  <column value="getBiography_lead"/>
+ <column value="getYears"/>
 </object>

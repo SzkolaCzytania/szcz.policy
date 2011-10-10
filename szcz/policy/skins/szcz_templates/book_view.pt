@@ -4,17 +4,12 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="szcz.policy">
 <body>
 
 <metal:content-core fill-slot="content-core">
-    <metal:block define-macro="content-core"
-          tal:define="kssClassesView context/@@kss_field_decorator_view;
-                      getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
-                      templateId template/getId;
-                      text python:context.Description();
-                      len_text python:len(text.strip())">
-BOOK
+<metal:block define-macro="content-core">
+
         <div class="newsImageContainer"
              tal:condition="context/getImage|nothing">
             <a href="#"
@@ -29,24 +24,31 @@ BOOK
               </metal:field>
             </p>
         </div>
+            
+            <h4 i18n:translate="label_book_authors"></h4>
+              <metal:field use-macro="python: context.widget('authors', 'view')"/>
+            <p></p>
+            <h4 i18n:translate="label_publisher">Publisher</h4>
+            <p>
+              <metal:field use-macro="python: context.widget('publisher', 'view')"/>
+              <metal:field use-macro="python: context.widget('address', 'view')"/>
+            </p>
 
-        <p tal:define="is_editable context/@@plone_context_state/is_editable"
-           tal:condition="python: not len_text and is_editable"
-           i18n:translate="no_body_text"
-           class="discreet">
-            This item does not have any body text, click the edit tab to change it.
-        </p>
+            <h4 i18n:translate="label_edition"></h4>
+            <p>
+            <metal:field use-macro="python: context.widget('edition', 'view')"/>
+            </p>
 
-        <div metal:define-macro="text-field-view"
-             id="parent-fieldname-text" class="stx"
-             tal:define="kss_class python:getKssClasses('text',
-                         templateId=templateId, macro='text-field-view');
-                         text text|context/getText|nothing"
-             tal:condition="text"
-             tal:attributes="class python:test(context.Format() in ('text/structured',
-                                                   'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
-            <div metal:define-slot="inside" tal:replace="structure text">The body</div>
-        </div>
+            <h4 i18n:translate="label_pages"></h4>
+            <p>
+            <metal:field use-macro="python: context.widget('pages', 'view')"/>
+            </p>
+
+            <h4 i18n:translate="label_isbn"></h4>
+            <p>
+            <metal:field use-macro="python: context.widget('isbn', 'view')"/>
+            </p>
+
     </metal:block>
 </metal:content-core>
 

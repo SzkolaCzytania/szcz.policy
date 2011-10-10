@@ -28,20 +28,20 @@
 	    <dd class="portletItem itemCollection">
 
             <tal:events tal:repeat="obj query_results">
-                <tal:first condition="python: repeat['obj'].number() == 1" tal:define="item_icon python:getIcon(obj); item_path obj/getPath;">
+                <tal:first condition="python: repeat['obj'].number() == 1">
                 <div class="itemContent">
-                  <div class="itemPhoto" tal:define="author_path obj/author_path; 
+                  <div class="itemPhoto" tal:define="author_path obj/author_path;
                                                      author_url python: view.request.physicalPathToURL(author_path)">
-                        <img src="http://placehold.it/64x64" alt="photo" 
+                        <img src="http://placehold.it/64x64" alt="photo"
                              tal:attributes="src string:${author_url}/leadImage_mini; alt obj/Title;"/>
                         <a class="moreLink" href="#" tal:attributes="href obj/getURL">
                           Czytaj kanon »</a>
                       </div>
                       <h2 class="itemTitle">
-                        <a href="#" tal:attributes="href obj/getURL">
-                            <span tal:replace="obj/Title">
-                                    Title
-                            </span>
+                          <a href="#" tal:attributes="href obj/getURL">
+                            <tal:authors repeat="author obj/related_people">
+                                <span tal:content="author"/>&nbsp;
+                            </tal:authors>
                         </a>
                       </h2>
                       <p class="quote"><span class="leftQuote"></span>

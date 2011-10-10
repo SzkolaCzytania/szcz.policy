@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-10-10 16:53+0000\n"
+"POT-Creation-Date: 2011-10-10 18:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,21 +108,23 @@ msgstr "Treść"
 
 #. Default: "Book authors"
 #: ./content/book.py:29
+#: ./skins/szcz_templates/book_view.pt:28
 msgid "label_book_authors"
 msgstr "Autorzy książki"
 
 #. Default: "Canon authors"
-#: ./content/canon.py:30
+#: ./content/canon.py:43
 msgid "label_canon_authors"
 msgstr "Twórcy kanonu"
 
 #. Default: "Canon books"
-#: ./content/canon.py:48
+#: ./content/canon.py:61
 msgid "label_canon_books"
 msgstr "Książki w kanonie"
 
 #. Default: "Edition"
 #: ./content/book.py:62
+#: ./skins/szcz_templates/book_view.pt:37
 msgid "label_edition"
 msgstr "Wydanie"
 
@@ -133,16 +135,19 @@ msgstr "Imię i nazwisko"
 
 #. Default: "ISBN Number"
 #: ./content/book.py:70
+#: ./skins/szcz_templates/book_view.pt:47
 msgid "label_isbn"
 msgstr "Numer ISBN"
 
 #. Default: "Pages"
 #: ./content/book.py:39
+#: ./skins/szcz_templates/book_view.pt:42
 msgid "label_pages"
 msgstr "Liczba stron"
 
 #. Default: "Publisher"
 #: ./content/book.py:46
+#: ./skins/szcz_templates/book_view.pt:31
 msgid "label_publisher"
 msgstr "Wydawnictwo"
 
@@ -151,10 +156,10 @@ msgstr "Wydawnictwo"
 msgid "label_review_author"
 msgstr "Autor recenzji"
 
-#. Default: "Unknown author"
-#: ./content/book.py:99
-msgid "label_unknown_author"
-msgstr "Autor nieznany"
+#. Default: "Text"
+#: ./content/canon.py:27
+msgid "label_text"
+msgstr "Treść"
 
 #. Default: "Years"
 #: ./content/person.py:38
@@ -164,6 +169,7 @@ msgstr "Lata życia"
 #. Default: "Read more &raquo;"
 #: ./browser/book_carousel_tile.pt:29
 #: ./browser/person_carousel_tile.pt:27
+#: ./skins/szcz_templates/canon_view.pt:84
 msgid "read_more"
 msgstr "Czytaj więcej &raquo;"
 

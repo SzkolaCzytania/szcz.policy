@@ -7,6 +7,7 @@ from Products.Archetypes import atapi
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
+from Products.ATContentTypes.configuration import zconf
 from plone.indexer.decorator import indexer
 
 from szcz.policy import policyMessageFactory as _
@@ -15,6 +16,18 @@ from szcz.policy.config import PROJECTNAME
 
 CanonSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
+    atapi.TextField('text',
+              required=False,
+              searchable=True,
+              storage = atapi.AnnotationStorage(migrate=True),
+              validators = ('isTidyHtmlWithCleanup',),
+              default_output_type = 'text/html',
+              widget = atapi.RichWidget(
+                        description = '',
+                        label = _(u'label_text', default=u'Text'),
+                        rows = 25,
+                        allow_file_upload = zconf.ATDocument.allow_document_upload),
+    ),
     atapi.ReferenceField('authors',
             relationship = 'canon_author',
             multiValued = True,
@@ -88,4 +101,12 @@ def canon_lead(obj):
     if authors:
         return authors[0].getBiography_lead()
     raise AttributeError
+
+@indexer(ICanon)
+def canon_author(obj):
+    authors = obj.getAuthors()
+    if authors:
+        return [a.Title() for a in authors]
+    else:
+        raise AttributeError
 

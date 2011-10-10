@@ -94,6 +94,9 @@ class Book(folder.ATFolder):
     description = atapi.ATFieldProperty('description')
 
     def related_people(self):
-        return [a.Title() for a in self.getAuthors()]
+        authors = self.getAuthors()
+        if not authors:
+            return _(u'label_unknown_author', default=u'Unknown author')
+        return [a.Title() for a in authors]
 
 atapi.registerType(Book, PROJECTNAME)

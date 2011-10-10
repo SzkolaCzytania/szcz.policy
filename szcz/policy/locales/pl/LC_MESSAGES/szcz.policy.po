@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-10-04 05:20+0000\n"
+"POT-Creation-Date: 2011-10-10 16:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,12 +112,12 @@ msgid "label_book_authors"
 msgstr "Autorzy książki"
 
 #. Default: "Canon authors"
-#: ./content/canon.py:29
+#: ./content/canon.py:30
 msgid "label_canon_authors"
 msgstr "Twórcy kanonu"
 
 #. Default: "Canon books"
-#: ./content/canon.py:47
+#: ./content/canon.py:48
 msgid "label_canon_books"
 msgstr "Książki w kanonie"
 
@@ -150,6 +150,11 @@ msgstr "Wydawnictwo"
 #: ./content/review.py:43
 msgid "label_review_author"
 msgstr "Autor recenzji"
+
+#. Default: "Unknown author"
+#: ./content/book.py:99
+msgid "label_unknown_author"
+msgstr "Autor nieznany"
 
 #. Default: "Years"
 #: ./content/person.py:38

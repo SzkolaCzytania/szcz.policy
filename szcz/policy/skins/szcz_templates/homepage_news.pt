@@ -20,40 +20,55 @@
 			class view/data/css_class|nothing;">
 
 
-          <tal:events tal:repeat="obj query_results">
-
 	    <dt class="portletHeader">
-              <a tal:attributes="href collection_url" tal:condition="view/data/show_more" class="tile">
-                <span tal:replace="view/data/header" ></span>
-              </a>
-              <span class="sepTip"> - </span>
-	      <span class="portletTip"
-	            tal:content="python:toLocalizedTime(obj.Date)">
-	      </span>
+                <a tal:attributes="href collection_url" tal:condition="view/data/show_more" class="tile">
+                  <span tal:replace="view/data/header" ></span>
+                </a>
 	    </dt>
+          <tal:events tal:repeat="obj query_results">
 	    
 	    <dd class="portletItem itemCollection"
-	        tal:define="item_icon python:getIcon(obj);
-                item_path obj/getPath;">
+	        tal:define="item_path obj/getPath;">
 
-                <h2 class="itemTitle">
+                <h2 class="itemTitle" tal:condition="repeat/obj/start">
                   <a href="#" tal:attributes="href obj/getURL; title obj/Description">
 	            	<span tal:replace="obj/Title">
 	             		Title
 	            	</span>
                   </a>
                 </h2>
+                <h3 class="itemTitle" tal:condition="not: repeat/obj/start">
+                  <a href="#" tal:attributes="href obj/getURL; title obj/Description">
+	            	<span tal:replace="obj/Title">
+	             		Title
+	            	</span>
+                  </a>
+                </h3>
+	    <div class="portletHeader">
+	      <span class="portletTip newsDate"
+	            tal:content="python:toLocalizedTime(obj.Date)">
+	      </span>
+	    </div>
 
-                <div class="itemContent">
-                  <div class="itemPhoto" tal:condition="exists:python:path('here'+item_path.replace('/'+portal.getId(), '')+'/image_tile')">
+                <div class="itemContent" tal:condition="repeat/obj/start">
+                  <div class="itemPhoto" tal:condition="exists:python:path('here'+item_path.replace('/'+portal.getId(), '')+'/image_thumb')">
                     <img src="http://placehold.it/64x64" alt="photo" 
-                         tal:attributes="src string:${obj/getURL}/image_tile; alt obj/Description;"/>
+                         tal:attributes="src string:${obj/getURL}/image_thumb; alt obj/Description;"/>
                   </div>
 		  <p tal:content="obj/Description"/>
                 </div>
 	
+                <div class="itemContent" tal:condition="not: repeat/obj/start">
+
+                  <!--<div class="itemPhoto" tal:condition="exists:python:path('here'+item_path.replace('/'+portal.getId(), '')+'/image_tile')">
+                    <img src="http://placehold.it/64x64" alt="photo" 
+                         tal:attributes="src string:${obj/getURL}/image_tile; alt obj/Description;"/>
+                       </div>-->
+		  <p tal:content="obj/Description"/>
+                </div>
 	    </dd>
 
+        </tal:events>
 	    <dd class="portletFooter"
 		    tal:define="show_more view/data/show_more"
 			tal:condition="show_more">
@@ -67,7 +82,6 @@
 	             Custom text
 	             </a>
 	    </dd>
-        </tal:events>
 	</dl>
 
 

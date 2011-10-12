@@ -7,14 +7,20 @@
       i18n:domain="plone">
 <body>
 
+  <metal:desc fill-slot="content-description">
+      <h4 tal:content="context/getYears" />
+  </metal:desc>
+
 <metal:content-core fill-slot="content-core">
     <metal:block define-macro="content-core"
           tal:define="kssClassesView context/@@kss_field_decorator_view;
                       getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                       templateId template/getId;
                       text python:context.getBiography();
+                      books context/allBooks;
+                      canons context/allCanons;
                       len_text python:len(text.strip())">
-PERSON
+
         <div class="newsImageContainer"
              tal:condition="context/getImage|nothing">
             <a href="#"
@@ -46,8 +52,31 @@ PERSON
              tal:attributes="class python:test(context.Format() in ('text/structured',
                                                    'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
             <div metal:define-slot="inside" tal:replace="structure text">The body</div>
-        </div>
+          </div>
+
+    <tal:books condition="books">
+      <h4 i18n:translate="author_books">Książki autora:</h4>
+      <div class="book-authors">
+        <tal:authors repeat="book books">
+          <img src="" alt="photo" tal:attributes="src string:${book/absolute_url}/leadImage_tile; alt book/Title;" class="canonImage"/>
+          <h4><a href="" tal:content="book/Title" tal:attributes="href book/absolute_url"></a></h4>
+          <p tal:content="python: '%s...' % ' '.join(book.Description().split(' ')[:20])">I remained lost to him.</p>
+        </tal:authors>
+      </div>
+    </tal:books>
+
+    <tal:books condition="canons">
+      <h4 i18n:translate="author_canons">Indeksy autora:</h4>
+      <div class="book-authors">
+        <tal:authors repeat="canon canons">
+          <h4><a href="" tal:content="canon/Title" tal:attributes="href canon/absolute_url"></a></h4>
+          <p tal:content="python: '%s...' % ' '.join(canon.Description().split(' ')[:20])">I remained lost to him.</p>
+        </tal:authors>
+      </div>
+    </tal:books>
+
     </metal:block>
+ <hr class="blocksSep">
 </metal:content-core>
 
 </body>

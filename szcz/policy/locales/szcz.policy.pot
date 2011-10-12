@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-10-10 18:23+0000\n"
+"POT-Creation-Date: 2011-10-12 16:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,13 +54,18 @@ msgstr ""
 msgid "Szkola Czytania Book"
 msgstr ""
 
+#. Default: "O książce"
+#: ./skins/szcz_templates/book_view.pt:18
+msgid "about_book"
+msgstr ""
+
 #. Default: "Publisher's address. For major publishing houses, just the city is given."
 #: ./content/book.py:55
 msgid "help_address"
 msgstr ""
 
 #. Default: "Short text lead, best describing the person."
-#: ./content/person.py:33
+#: ./content/person.py:34
 msgid "help_biography_lead"
 msgstr ""
 
@@ -85,7 +90,7 @@ msgid "help_publisher"
 msgstr ""
 
 #. Default: "Year of birth or range of life (birth-death)"
-#: ./content/person.py:39
+#: ./content/person.py:40
 msgid "help_years"
 msgstr ""
 
@@ -95,12 +100,12 @@ msgid "label_address"
 msgstr ""
 
 #. Default: "Biography"
-#: ./content/person.py:26
+#: ./content/person.py:27
 msgid "label_biography"
 msgstr ""
 
 #. Default: "Biography lead"
-#: ./content/person.py:32
+#: ./content/person.py:33
 msgid "label_biography_lead"
 msgstr ""
 
@@ -109,9 +114,14 @@ msgstr ""
 msgid "label_body_text"
 msgstr ""
 
+#. Default: "Book authors"
 #: ./content/book.py:29
-#: ./skins/szcz_templates/book_view.pt:28
 msgid "label_book_authors"
+msgstr ""
+
+#. Default: "Books in canon:"
+#: ./skins/szcz_templates/canon_view.pt:31
+msgid "label_books_in_canon"
 msgstr ""
 
 #. Default: "Canon authors"
@@ -124,29 +134,32 @@ msgstr ""
 msgid "label_canon_books"
 msgstr ""
 
+#. Default: "Edition"
 #: ./content/book.py:62
-#: ./skins/szcz_templates/book_view.pt:37
+#: ./skins/szcz_templates/book_view.pt:34
 msgid "label_edition"
 msgstr ""
 
 #. Default: "Fullname"
-#: ./content/person.py:48
+#: ./content/person.py:49
 msgid "label_fullname"
 msgstr ""
 
+#. Default: "ISBN Number"
 #: ./content/book.py:70
-#: ./skins/szcz_templates/book_view.pt:47
+#: ./skins/szcz_templates/book_view.pt:43
 msgid "label_isbn"
 msgstr ""
 
+#. Default: "Pages"
 #: ./content/book.py:39
-#: ./skins/szcz_templates/book_view.pt:42
+#: ./skins/szcz_templates/book_view.pt:38
 msgid "label_pages"
 msgstr ""
 
 #. Default: "Publisher"
 #: ./content/book.py:46
-#: ./skins/szcz_templates/book_view.pt:31
+#: ./skins/szcz_templates/book_view.pt:28
 msgid "label_publisher"
 msgstr ""
 
@@ -161,14 +174,14 @@ msgid "label_text"
 msgstr ""
 
 #. Default: "Years"
-#: ./content/person.py:38
+#: ./content/person.py:39
 msgid "label_years"
 msgstr ""
 
 #. Default: "Read more &raquo;"
 #: ./browser/book_carousel_tile.pt:29
 #: ./browser/person_carousel_tile.pt:27
-#: ./skins/szcz_templates/canon_view.pt:84
+#: ./skins/szcz_templates/canon_view.pt:95
 msgid "read_more"
 msgstr ""
 

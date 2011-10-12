@@ -5,6 +5,7 @@ from zope.interface import implements
 
 from Products.Archetypes import atapi
 from Products.Archetypes.utils import getToolByName
+from Products.Archetypes.config import REFERENCE_CATALOG
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 from Products.ATContentTypes.configuration import zconf
@@ -71,5 +72,17 @@ class Person(base.ATCTContent):
         if data:
             descr = data.getData()
             return '%s...' % (' '.join(descr.split(' ')[:140]))
+
+    def allBooks(self):
+        reference_catalog = getToolByName(self, REFERENCE_CATALOG)
+        references = reference_catalog.getBackReferences(self,
+                                                         relationship="book_author")
+        return [ ref.getSourceObject() for ref in references ]
+
+    def allCanons(self):
+        reference_catalog = getToolByName(self, REFERENCE_CATALOG)
+        references = reference_catalog.getBackReferences(self,
+                                                         relationship="canon_author")
+        return [ ref.getSourceObject() for ref in references ]
 
 atapi.registerType(Person, PROJECTNAME)

@@ -7,17 +7,28 @@
       i18n:domain="szcz.policy">
 <body>
 
+  <metal:desc fill-slot="content-description">
+       <div class="documentDescription" tal:content="context/Description"/>
+       <h3>Canon authors:</h3>
+        <tal:authors repeat="author context/getAuthors">
+        <h4><a href="" tal:content="author/Title" tal:attributes="href author/absolute_url"></a></h4>
+
+        <div class="newsImageContainer">
+          <img tal:attributes="src string:${author/absolute_url}/leadImage_mini; alt author/Title;"/>
+            <p class="discreet" tal:content="author/Title">
+            </p>
+          </div>
+          <div id="parent-fieldname-text" class="plain"><p tal:content="author/Description"/></div>
+
+        </tal:authors>
+      </metal:desc>
+
 <metal:content-core fill-slot="content-core">
-<metal:block define-macro="content-core" tal:define="authors context/getAuthors;
-                            normalizeString nocall:context/@@plone/normalizeString;
+<metal:block define-macro="content-core" tal:define="normalizeString nocall:context/@@plone/normalizeString;
                             use_view_action site_properties/typesUseViewActionInListings|python:();
                                          folderContents context/getBooks">
 
-      <div class="newsImageContainer" tal:repeat="author authors">
-        <img tal:attributes="src string:${author/absolute_url}/leadImage_mini; alt author/Title;"/>
-          <p class="discreet" tal:content="author/Title">
-          </p>
-      </div>
+          <h3 i18n:translate="label_books_in_canon">Books in canon:</h3>
 
         <div metal:define-macro="text-field-view"
              id="parent-fieldname-text" class="stx"
@@ -28,11 +39,8 @@
             <div metal:define-slot="inside" tal:replace="structure text">The body</div>
           </div>
 
-          <h2 i18n-translate="label_books_in_canon">Books in canon</h2>
-
-
             <tal:block tal:repeat="item folderContents">
-                <div class="tileItem visualIEFloatFix"
+                <div class="tileItem visualIEFloatFix canonItemListing"
                      tal:define="item_url item/getURL|item/absolute_url;
                                        item_id item/getId|item/id;
                                        item_title_or_id item/pretty_title_or_id;
@@ -48,7 +56,7 @@
                                    ">
 
 
-                    <h2 class="tileHeadline"
+                    <h3 class="tileHeadline"
                         metal:define-macro="listitem">
 
                         <a href="#"
@@ -59,15 +67,18 @@
                             Item Title
                         </a>
 
-                      </h2>
+                      </h3>
+                    <div class="book-authors">
                       <tal:authors repeat="author item/getAuthors">
-                        <h4 tal:content="author/Title">
-                        </h4>
-                      </tal:authors>
+                          <img src="" alt="photo" tal:attributes="src string:${author/absolute_url}/leadImage_tile; alt author/Title;" class="canonImage"/>
+                          <h4><a href="" tal:content="author/Title" tal:attributes="href author/absolute_url"></a></h4>
+                          <h4 tal:content="author/getYears" />
+                            </tal:authors>
+                          </div>
   
 
                     <a href="#"
-                       tal:define="oddrow repeat/item/odd; cssclass python: oddrow and 'canonImage' or 'tileImage'" 
+                       tal:define="oddrow repeat/item/odd; cssclass python: oddrow and 'tileImage' or 'tileImage'" 
                        tal:attributes="href python:item_type in use_view_action and item_url+'/view' or item_url">
                         <img tal:attributes="src string:${item/absolute_url}/leadImage_thumb; alt item/Title; class cssclass"/>
                     </a>
@@ -84,18 +95,18 @@
                         <a href=""
                            tal:attributes="href python:item_type in use_view_action and item_url+'/view' or item_url"
                            i18n:translate="read_more">
-                        Read More&hellip;
+                           Read more &raquo;
                         </a>
                     </p>
 
                     <div class="visualClear"><!-- --></div>
 
                   </div>
-                  <hr class="blocksSep">
             </tal:block>
 
 
     </metal:block>
+                  <hr class="blocksSep">
 </metal:content-core>
 
 </body>

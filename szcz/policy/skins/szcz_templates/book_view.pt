@@ -19,16 +19,18 @@
   </metal:desc>
 
 <metal:content-core fill-slot="content-core">
-<metal:block define-macro="content-core">
+<metal:block define-macro="content-core" tal:define="canons context/allCanons">
 
         <div id="parent-fieldname-text" class="plain">
           <p tal:content="context/Description"></p>
         </div>
 
+          <tal:pages condition="context/getPages">
             <h4 i18n:translate="label_pages">Pages</h4>
             <p>
             <metal:field use-macro="python: context.widget('pages', 'view')"/>
             </p>
+          </tal:pages>
 <!--
            <h4 i18n:translate="label_publisher">Publisher</h4>
             <p>
@@ -45,6 +47,15 @@
             <metal:field use-macro="python: context.widget('isbn', 'view')"/>
             </p>
             -->        
+    <tal:books condition="canons">
+      <h4 i18n:translate="book_in_canon">Książka dostępna w kanonach:</h4>
+      <div class="book-authors">
+        <tal:authors repeat="canon canons">
+          <h4><a href="" tal:content="canon/Title" tal:attributes="href canon/absolute_url"></a></h4>
+          <p tal:content="python: '%s...' % ' '.join(canon.Description().split(' ')[:20])">I remained lost to him.</p>
+        </tal:authors>
+      </div>
+    </tal:books>
     </metal:block>
                   <hr class="blocksSep">
 </metal:content-core>

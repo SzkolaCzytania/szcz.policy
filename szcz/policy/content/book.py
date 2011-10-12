@@ -6,6 +6,8 @@ from zope.interface import implements
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+from Products.Archetypes.utils import getToolByName
+from Products.Archetypes.config import REFERENCE_CATALOG
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 
 from szcz.policy import policyMessageFactory as _
@@ -98,5 +100,11 @@ class Book(folder.ATFolder):
         if not authors:
             return [u"Autor nieznany"]
         return [a.Title() for a in authors]
+
+    def allCanons(self):
+        reference_catalog = getToolByName(self, REFERENCE_CATALOG)
+        references = reference_catalog.getBackReferences(self,
+                                                         relationship="canon_book")
+        return [ ref.getSourceObject() for ref in references ]
 
 atapi.registerType(Book, PROJECTNAME)

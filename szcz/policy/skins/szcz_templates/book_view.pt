@@ -25,6 +25,11 @@
           <p tal:content="context/Description"></p>
         </div>
 
+            <h4 i18n:translate="label_pages">Pages</h4>
+            <p>
+            <metal:field use-macro="python: context.widget('pages', 'view')"/>
+            </p>
+<!--
            <h4 i18n:translate="label_publisher">Publisher</h4>
             <p>
               <metal:field use-macro="python: context.widget('publisher', 'view')"/>
@@ -35,16 +40,11 @@
               <metal:field use-macro="python: context.widget('edition', 'view')"/>
             </h4>
             
-            <h4 i18n:translate="label_pages">Pages</h4>
-            <p>
-            <metal:field use-macro="python: context.widget('pages', 'view')"/>
-            </p>
-
             <h4 i18n:translate="label_isbn">ISBN Number</h4>
             <p>
             <metal:field use-macro="python: context.widget('isbn', 'view')"/>
             </p>
-            
+            -->        
     </metal:block>
                   <hr class="blocksSep">
 </metal:content-core>

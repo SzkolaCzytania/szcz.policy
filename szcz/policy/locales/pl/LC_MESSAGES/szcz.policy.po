@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-10-12 16:56+0000\n"
+"POT-Creation-Date: 2011-10-12 18:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,6 +55,11 @@ msgstr "Książka"
 #: ./skins/szcz_templates/book_view.pt:18
 msgid "about_book"
 msgstr "O książce"
+
+#. Default: "Canon authors:"
+#: ./skins/szcz_templates/canon_view.pt:12
+msgid "canon_authors"
+msgstr "Autorzy kanonu"
 
 #. Default: "Publisher's address. For major publishing houses, just the city is given."
 #: ./content/book.py:55

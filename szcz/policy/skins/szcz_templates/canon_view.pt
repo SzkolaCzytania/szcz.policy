@@ -9,7 +9,7 @@
 
   <metal:desc fill-slot="content-description">
        <div class="documentDescription" tal:content="context/Description"/>
-       <h3>Canon authors:</h3>
+       <h3 i18n:translate="canon_authors">Canon authors:</h3>
         <tal:authors repeat="author context/getAuthors">
         <h4><a href="" tal:content="author/Title" tal:attributes="href author/absolute_url"></a></h4>
 

@@ -61,7 +61,8 @@
 
 		  <p tal:content="obj/Description"/>
                 </div>
-	    </dd>
+                </dd>
+                <div class="visualClear"><!-- --></div>
 
         </tal:events>
 	    <dd class="portletFooter"

@@ -107,4 +107,11 @@ class Book(folder.ATFolder):
                                                          relationship="canon_book")
         return [ ref.getSourceObject() for ref in references ]
 
+    def getRawRelatedItems(self):
+        for author in self.getAuthors():
+            yield author.UID()
+        for canon in self.allCanons():
+            yield canon.UID()
+
+
 atapi.registerType(Book, PROJECTNAME)

@@ -24,4 +24,14 @@
            name="szcz"
            provides="collective.dancing.interfaces.IHTMLComposerTemplate" />
 
+    <browser:viewlet
+           name="sc.social.likes_metadata"
+           for="collective.contentleadimage.interfaces.ILeadImageable"
+           manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+           layer="sc.social.like.interfaces.ISocialLikeLayer"
+           class=".viewlets.SocialLeadImageMetadataViewlet"
+           permission="zope.Public"
+    />
+
+
 </configure>

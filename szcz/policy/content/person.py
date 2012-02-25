@@ -9,6 +9,7 @@ from Products.Archetypes.config import REFERENCE_CATALOG
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 from Products.ATContentTypes.configuration import zconf
+from ore.contentmirror.interfaces import IMirrored
 
 from szcz.policy import policyMessageFactory as _
 from szcz.policy.interfaces import IPerson
@@ -57,7 +58,7 @@ schemata.finalizeATCTSchema(PersonSchema, moveDiscussion=False)
 
 class Person(base.ATCTContent):
     """Person that could be either Author or Person"""
-    implements(IPerson)
+    implements(IPerson, IMirrored)
 
     meta_type = "Person"
     schema = PersonSchema

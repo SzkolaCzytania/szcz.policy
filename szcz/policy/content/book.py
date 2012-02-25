@@ -9,6 +9,7 @@ from Products.ATContentTypes.content import schemata
 from Products.Archetypes.utils import getToolByName
 from Products.Archetypes.config import REFERENCE_CATALOG
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
+from ore.contentmirror.interfaces import IMirrored
 
 from szcz.policy import policyMessageFactory as _
 from szcz.policy.interfaces import IBook
@@ -87,7 +88,7 @@ schemata.finalizeATCTSchema(BookSchema, folderish=True, moveDiscussion=False)
 
 class Book(folder.ATFolder):
     """Szkola Czytania Book"""
-    implements(IBook)
+    implements(IBook, IMirrored)
 
     meta_type = "Book"
     schema = BookSchema

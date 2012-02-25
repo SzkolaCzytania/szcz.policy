@@ -55,6 +55,7 @@ setup(name='szcz.policy',
       include_package_data=True,
       zip_safe=False,
       install_requires=['setuptools',
+                        'ore.contentmirror',
                         # -*- Extra requirements: -*-
                         ],
       tests_require=tests_require,

@@ -9,6 +9,7 @@ from Products.ATContentTypes.content import schemata
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from Products.ATContentTypes.configuration import zconf
 from plone.indexer.decorator import indexer
+from ore.contentmirror.interfaces import IMirrored
 
 from szcz.policy import policyMessageFactory as _
 from szcz.policy.interfaces import ICanon
@@ -76,7 +77,7 @@ schemata.finalizeATCTSchema(CanonSchema, moveDiscussion=False)
 
 class Canon(base.ATCTContent):
     """Book's Canon"""
-    implements(ICanon)
+    implements(ICanon, IMirrored)
 
     meta_type = "Canon"
     schema = CanonSchema

@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:ore="http://namespaces.objectrealms.net/mirror">
+
+ <!-- setup a database connection -->
+  <ore:engine url="postgresql://postgres:postgres@localhost/szcz"
+           name="mirror-db"
+           echo="True"/>
+ <!-- bind the database connection to the contentmirror rdb schema -->
+ <ore:bind engine="mirror-db" metadata="ore.contentmirror.schema.metadata"/>
+
+ <!-- types to mirror -->
+ <ore:mirror content="szcz.policy.content.book.Book" />
+ <ore:mirror content="szcz.policy.content.canon.Canon" />
+ <ore:mirror content="szcz.policy.content.person.Person" />
+
+</configure>

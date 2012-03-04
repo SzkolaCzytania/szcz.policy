@@ -4,6 +4,8 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="szcz.policy">
 
+<include package="plone.app.contentmenu" />
+
     <browser:page
       name="carousel-portlet-view"
       for="..interfaces.IBook"
@@ -33,5 +35,29 @@
            permission="zope.Public"
     />
 
+
+  <browser:page
+        for="Products.ATContentTypes.interface.IATTopic"
+        name="topic_slider_view"
+        permission="zope.Public"
+        class=".topic_slider_view.TopicSliderView"
+        template="topic_slider_view.pt"
+        />
+
+  <browser:page
+        for="Products.ATContentTypes.interface.IATTopic"
+        name="topic_view_macros"
+        permission="zope.Public"
+        template="topic_view_macros.pt"
+        />
+
+  <browser:menuItems
+      for="Products.ATContentTypes.interface.IATTopic"
+      menu="plone_displayviews">
+      <browser:menuItem
+        title="Topic slider"
+        action="topic_slider_view"
+        />
+    </browser:menuItems>
 
 </configure>

@@ -1,5 +1,8 @@
 <tal:metas i18n:domain="sc.social.like" tal:condition="view/enabled">
   <tal:fb tal:condition="view/fb_enabled">
+    <meta property="fb:app_id" content="361096660582168" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" tal:attributes="content context/absolute_url" />
     <meta property="og:site_name" tal:attributes="content view/portaltitle" />
     <meta property="og:image" tal:attributes="content view/getImage" />
     <meta tal:condition="view/fbadmins" property="fb:admins" tal:attributes="content view/fbadmins" />

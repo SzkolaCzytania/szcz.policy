@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="pl">
+
+<body>
+<div metal:define-macro="listProjects">
+	<div id="sliderPortfolio" class="anythingSlider">
+		<div class="wrapper">
+			<ul>
+     			<li tal:repeat="batch python:view.createResultsStruct(topicContents)">
+     				<tal:projects repeat="obj batch">
+	        			<metal:project use-macro="here/topic_view_macros/macros/projectDetails" />
+     				</tal:projects>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<metal:projectDeatails define-macro="projectDetails">
+	<div class=""
+ 		 tal:define="oddrow repeat/obj/odd;"
+ 		 tal:attributes="class python:oddrow and 'projectRight' or 'projectLeft'">
+		<h4 class="portfolioProjectTitle">
+            <tal:authors repeat="author obj/related_people">
+                <a href="#" tal:define="is_last repeat/author/end;">
+                    <span tal:condition="is_last"
+                          class="customer" tal:content="string:${author}:"></span>
+                    <span tal:condition="not:is_last"
+                          class="customer"
+                          tal:content="string:${author}, "></span>
+                </a>
+            </tal:authors>
+            <a href="" tal:attributes="href obj/getURL;
+                                       title obj/Title">
+                <span class="title" tal:content="python:obj.Title">Title</span>
+            </a>
+		</h4>
+		<div class="projectKeywords">
+				<ul class="projectSectors">
+					<li class="projectSector" tal:repeat="tag obj/Subject">
+						<a href=""
+						   tal:attributes="href string:${context/absolute_url}/search?Subject%3Alist=${tag}">
+							<span tal:replace="tag">Sector</span>
+						</a>
+					</li>
+				</ul>
+		</div>
+		<div class="portfolioProjectDescription" tal:condition="python:obj.Description">
+    		<img src="" alt=""
+				 class="portfolioProjectImage image-left"
+				 tal:attributes="src string:${obj/getURL}/leadImage_mini;
+								 alt obj/Title"/>
+        <p tal:content="python: '%s...' % ' '.join(obj.Description.split(' ')[:65])">An editor's...</p>
+		   	<div class="visualClear"></div>
+		</div>
+	</div>
+</metal:projectDeatails>
+
+</body>
+</html>
